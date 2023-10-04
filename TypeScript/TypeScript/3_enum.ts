@@ -1,20 +1,28 @@
+/*
+Enums allow a developer to define a set of named constants. Using 
+enums can make it easier to document intent, or create a set of 
+distinct cases. TypeScript provides both numeric and string-based 
+enums.
+*/
 enum Membership {
-  Simple,
-  Standard,
-  Premium
+  Hopar1, // 0 
+  Hopar2, // 1
+  Hopar3  // 2
 }
 
-const membership = Membership.Standard
+const membership = Membership.Hopar2
 const membershipReverse = Membership[2]
 
-console.log(membership)
-console.log(membershipReverse)
+console.log(membership) // 1
+console.log(membershipReverse) // Hopar3
 
+//
 enum SocialMedia {
-  VK = 'VK',
+  VK = 'Vk',
   FACEBOOK = 'FACEBOOK',
-  INSTAGRAM = 'INSTAGRAM'
+  INSTAGRAM = 'INSTAGRAM',
 }
 
 const social = SocialMedia.INSTAGRAM
-console.log(social)
+console.log(social) // INSTAGRAM
+
