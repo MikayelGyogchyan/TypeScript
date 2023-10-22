@@ -1,32 +1,35 @@
+// Enums
+
+const ADMIN = 0
+const READ_ONLY = 1
+const AUTHOR = 2
 
 const person = {
-  name: 'Mikayel',
+  name: "Mikayel",
   age: 24,
-  hobbies: ['Sports', 'Cooking'],
-  role: [2, 'author'] // role: (string | number)[]
+  hobbies: ["Sports", "Cooking"],
+  role: ADMIN
+};
+
+if(person.role === ADMIN) { // role: number
+  console.log('Is ADMIN'); // Is ADMIN'
 }
 
-person.role.push('admin')
-person.role[1] = (10)
+// With Enums
 
-// Tuple
+enum Role { ADMIN, READ_ONLY, AUTHOR} // default //  Role.ADMIN = 0, Role.READ_ONLY = 1, Role.AUTHOR = 2
+enum Role1 { ADMIN = 5, READ_ONLY, AUTHOR} // Role.ADMIN = 5, Role.READ_ONLY = 6, Role.AUTHOR = 7
+enum Role2 { ADMIN = 5, READ_ONLY, AUTHOR = 33} // Role.ADMIN = 5, Role.READ_ONLY = 6, Role.AUTHOR = 33
+enum Role3 { ADMIN = 'ADMIN', READ_ONLY = 44, AUTHOR = 33} // Role.ADMIN = "ADMIN", Role.READ_ONLY = 44, Role.AUTHOR = 33
 
-const person2: {
-  name: string,
-  age: number,
-  hobbies: string[],
-  role: [number, string] // Tuple
-} = {
-  name: 'Mikayel',
+const person2 = {
+  name: "Mikayel",
   age: 24,
-  hobbies: ['Sports', 'Cooking'],
-  role: [2, 'author'] 
+  hobbies: ["Sports", "Cooking"],
+  role: Role.ADMIN
+};
+
+if(person2.role === Role.ADMIN) { // role: number
+  console.log('Is ADMIN'); // Is ADMIN'
 }
 
-// person2.role[1] = (10) // error //  Type 'number' is not assignable to type 'string'
-// person2.role.push('admin') // this will work. Push is an exception. TS can't catch this error
-// person2.role = [0, 'admin', 'user'] // error
-
-/*
-The length is enforced if we assign like this, but not for a pushing.
-*/
